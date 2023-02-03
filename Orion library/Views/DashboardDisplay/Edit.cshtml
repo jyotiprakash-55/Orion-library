@@ -1,0 +1,61 @@
+﻿@model Orion_library.Models.LibraryRecord
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-1 ">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card  mt-5 mb-5">
+                    <div class="card-heading">
+                        <h2 class="title" style="text-align:center;color:whitesmoke">Edit Form</h2>
+                    </div>
+                    <div class="card-body px-5">
+                        @using (Html.BeginForm("Edit", "DashboardDisplay", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(m => m.ID)
+                            <div class="form-outline mb-4">
+                                @Html.LabelFor(m => m.Title)
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Title)
+                            </div>
+                            <div class="form-outline mb-4">
+                                @Html.LabelFor(m => m.Author1)
+                                @Html.TextBoxFor(m => m.Author1, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Author1)
+                            </div>
+                            <div class="form-outline mb-4">
+                                @Html.LabelFor(m => m.Author2)
+                                @Html.TextBoxFor(m => m.Author2, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Author2)
+                            </div>
+                            <div class="form-outline mb-4">
+                                @Html.LabelFor(m => m.Description)
+                                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Description)
+                            </div>
+                            <div class="form-outline mb-4">
+                                @Html.LabelFor(m => m.Language)
+                                @Html.TextBoxFor(m => m.Language, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Language)
+                            </div>
+                            <div class="form-outline mb-4 text-center">
+                                <label class="label-success text-danger">@ViewBag.Message</label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary px-5 mb-5 w-100">Edit</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section validation{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}

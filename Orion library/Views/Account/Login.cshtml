@@ -1,0 +1,51 @@
+﻿@model Orion_library.Models.AppUserRecord
+
+
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card my-5">
+                <div class="card-body cardbody-color p-lg-5">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    {
+                        <div class="text-center">
+                            <img src="~/Content/images/books.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                                 alt="profile">
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                        <div class="form-outline mb-4">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        <div class="form-outline mb-4 text-center">
+                            <label class="label-success text-danger">@ViewBag.ErrorMessage</label>
+                        </div>
+                        <div class="text-center"><button type="submit" class="btn btn-primary px-5 mb-5 w-100">Login</button></div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section validation{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
+ 
+
+
